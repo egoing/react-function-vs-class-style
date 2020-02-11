@@ -10,7 +10,8 @@ function App() {
     </div> 
   );
 }
-
+var funcStyle = 'color:blue';
+var funcId = 0;
 function FuncComp(props){
   var numberState = useState(props.initNumber);
   var number = numberState[0];
@@ -22,13 +23,18 @@ function FuncComp(props){
 
   var [_date, setDate] = useState((new Date()).toString());  
   
-  console.log('numberState', numberState);
+  console.log('%cfunc => render '+(++funcId), funcStyle);
   return (
     <div className="container">
       <h2>function style component</h2>
       <p>Number : {number}</p>
       <p>Date : {_date}</p>
       <input type="button" value="random" onClick={
+          function(){
+            setNumber(Math.random());
+          }
+        }></input>
+      <input type="button" value="date" onClick={
           function(){
             setDate((new Date()).toString());
           }
