@@ -27,6 +27,9 @@ function FuncComp(props){
   useEffect(function(){
     console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate) '+(++funcId), funcStyle);
     document.title = number + ' : ' + _date;
+    return function(){
+      console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate) '+(++funcId), funcStyle);
+    }
   });
 
   console.log('%cfunc => render '+(++funcId), funcStyle);
